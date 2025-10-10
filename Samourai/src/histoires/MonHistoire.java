@@ -12,11 +12,13 @@ public class MonHistoire {
         Commercant com = new Commercant("Pierre", 20);
         Yakuza y = new Yakuza("Takeda", 50, "sake", "Dragon");
         Ronin r = new Ronin("Hattori", 30, "sake");
+        Samourai s = new Samourai("Akimoto", 25, "thé", "Miyamoto");
         
         h.direBonjour();
         com.direBonjour();
         y.direBonjour();
         r.direBonjour();
+        s.direBonjour();
         
         System.out.println("\n=== Jean boit et joue avec son argent ===");
         h.boire();
@@ -37,8 +39,16 @@ public class MonHistoire {
         com.direBonjour();
         y.direBonjour();
         
+        System.out.println("\n=== Samourai montre ses capacités ===");
+        s.boire();                 // Boit sa boisson favorite
+        s.boire("bière");          // Boit n’importe quelle boisson
+        s.direBonjour();           // Annonce son seigneur
+        ((Ronin) s).provoquer(y);  // Polymorphisme : Samourai vu comme Ronin provoque le Yakuza
+        s.direBonjour();
+        
         System.out.println("\n=== Nouveaux duels pour voir l’évolution ===");
         r.provoquer(y);     // Un second duel
+        ((Samourai) s).provoquer(y); //Samourai provoque le yakuza à nouveau
         r.direBonjour();
         com.direBonjour();
         y.direBonjour();
@@ -48,5 +58,6 @@ public class MonHistoire {
         com.direBonjour();
         y.direBonjour();
         r.direBonjour();
+        s.direBonjour();
     }
 }
